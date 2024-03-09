@@ -45,7 +45,7 @@ User <==> Django <==> URL <==> view <==> Model/Template
  => Urls are also called as **routes**
  # views :-
  => The logic is executed for differnet URLs(http method) 
-# CReating Urls and views in Django
+# Creating Urls and views in Django
  => Inside views.py  
  # from django.http import HttpResponse (this HttpResponse for text based requesting Output)
  # Example :- 
