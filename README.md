@@ -94,7 +94,7 @@ def aboutus(request):
 # MAKING DEFAULT MIGRATIONS :- python manage.py makemigrations(whiile create a new model) ,   pyhton manage.py migrate(while performing CRUD operations in already created model)
 # Create Superuser in Django :- python manage.py createsuperuser
 # from MYWEBSITE import views (To import The views) 
-# from django.http import HttpResponse (this HttpResponse for text based requesting Output)
+# from django.http import HttpResponse (this HttpResponse for text based requesting Output).
 
 
 
