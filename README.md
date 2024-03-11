@@ -57,6 +57,25 @@ def aboutus(request):
   => Now inside urls.py import all views 
   # from MYWEBSITE import views
   # Example :-  path('main-page/',views.main),path('about-us/',views.aboutus),
+# Creating dynamic urls in Django:-
+=> Routing can be done in three types :-
+    => int,str,slug  Example :- <int:name>
+# Passing data from django View to template 
+Example :-
+        =>    def homepage(request):
+  data = {
+    'title':'Home Page',
+    'bodytext':'Welcome To HomePage',
+    'clist':['Django','Python','Java','HTML','CSS','JS'],
+    'studentdetails':[
+      {'phoneNo':'8859655963','Name':'Rajesh Kumar'},
+      {'phoneNo':'8859655966','Name':'Raju'}
+    ],
+    'numbers':[]
+  }
+# Django template using looping statement if elif else statement:
+# Managing static Files: - 
+# HTML Header and Footer in Django HTML Template include : 
 # Commands 
 => Install Python
 =>python --version
@@ -95,10 +114,13 @@ def aboutus(request):
 # Create Superuser in Django :- python manage.py createsuperuser
 # from MYWEBSITE import views (To import The views) 
 # from django.http import HttpResponse (this HttpResponse for text based requesting Output).
-
-
-
-
+# for render an html file => from django.shortcuts import render 
+# Managing static Files  => 
+STATICFILES_DIRS = [
+    BASE_DIR,"static"
+]          or yo can also do using {% load static %}  example '{% static "address of image" % }'
+# HTML Header and Footer in Django HTML Template include :-
+{% include  "header.html" %} //body  {% include "footer.html %}
 
 
 
