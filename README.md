@@ -122,8 +122,18 @@ STATICFILES_DIRS = [
 # HTML Header and Footer in Django HTML Template include :-
 {% include  "header.html" %} //body  {% include "footer.html %}
 
+# extends Django Template Tags =>
+ {% include  "header.html" %} 
+ {% block bloackname %}
+ {% endblock %}
+ {% include "footer.html %}
+ Now extends this in the required area 
 
-
+ # Django URL Template Tags => 
+ {% url 'name' %}
+**Example**
+path('pd/',views.pd,name="product")
+<li><a href="{% url 'product' %}">Products</a></li>
 
 
 
