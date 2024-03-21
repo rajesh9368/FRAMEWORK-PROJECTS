@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 def main(request):
   return HttpResponse("<b>Welcome!!!</b>")
-def aboutus(request):
-  return HttpResponse("<b>ABOUT-US</b>")
+def pd(request):
+  return render(request,"products.html")
 def course(request,courseid):
   return HttpResponse(courseid)
 def homepage(request):
