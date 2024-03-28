@@ -24,5 +24,8 @@ urlpatterns = [
     path('pd/',views.pd,name="product"),
     path('course-details/<int:courseid>',views.course),
     path('',views.homepage),
-    path('products-page/',views.product)
+    path('products-page/',views.product),
+    path('th/',views.thank),
+    path('submitform',views.submitform,name="submitform"),
+    path('userform',views.userform)
 ]

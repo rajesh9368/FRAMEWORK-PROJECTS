@@ -1,0 +1,11 @@
+<form method = "Post" action = "{% url 'submitform'%}">
+  {% csrf_token %}
+  {{form}}
+  {% comment %} <label for="">value1</label>
+  <input type = "text" name="num-1"  value="{{n1}}" class="form-control"/>
+  <label for = "">value2</label>
+  <input type = "text" name = "num-2" value="{{n2}}" class="form-control"/> {% endcomment %}
+  <button type = "submit">Submit</button>
+  output:
+  <input type = "text" value="{{output}}"/>
+</form>

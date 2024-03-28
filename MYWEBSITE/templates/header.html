@@ -1,4 +1,4 @@
-<div class="header">
+ <div class="header">
   <div class="container">
    <div class="navbar">
   <div class="logo"> 
@@ -7,7 +7,7 @@
       </div>
       <nav>
           <ul id="MenuItems">
-              <li><a href="/">Home</a></li>
+              <li class = "{% if request.path == '/'%} active {% endif%}"><a href="/">Home</a></li>
               <li><a href="{% url 'product' %}">Products</a></li>
               <li><a href=>About</a></li>
               <li><a href="">Contact</a></li>
@@ -31,4 +31,4 @@
           </div>
   </div>
   </div>
-  </div>
+  </div> 
