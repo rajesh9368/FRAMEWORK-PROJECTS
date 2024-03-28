@@ -75,7 +75,13 @@ Example :-
   }
 # Django template using looping statement if elif else statement:
 # Managing static Files: - 
-# HTML Header and Footer in Django HTML Template include : 
+# HTML Header and Footer in Django HTML Template include :
+# How to highlight active links in django:
+# what are HTTP Request methods in django: Differ between get and post
+# Implementation of get an post method(CSRF token)
+# Page redirections in django
+# Django html form action url
+# form tutorial for beginners
 # Commands 
 => Install Python
 =>python --version
