@@ -2,6 +2,12 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import userforms
+from service.models import Service
+def  modeldata(request):
+  servicesData=Service.objects.all()
+  for a in servicesData:
+    print(a)
+  return render(request,"modeldata.html")
 def main(request):
   return HttpResponse("<b>Welcome!!!</b>")
 def pd(request):
