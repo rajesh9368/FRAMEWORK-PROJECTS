@@ -1,9 +1,10 @@
-
+{% comment %} {% csrf_token %} {% endcomment %}
 <h1>CALCULATOR</h1>
-<form method ="post">
+<form method ="POST">
+{% csrf_token %}
 <label>Value1</label>
-<input type = "text" name="num1" class="form-control"/>
-<label>Select operator</select>
+<input type="text" name="num1" class="form-control"/>
+<label>Select operator</label>
 <select name="opr" class="form-control">
   <option value="+">+</option>
   <option value="-">-</option>
@@ -11,8 +12,8 @@
   <option value="/">/</option>
 </select>
 <label>Value2</label>
-<input type = "text"name="num2" class="form-control"/><br>
+<input type="text" name="num2" class="form-control"/><br>
 <button type="submit">Submit</button>
 <label>output</label>
-<input type = "output" value={{c}}>
+<input type="output" value="{{c}}" name="output">
 </form>

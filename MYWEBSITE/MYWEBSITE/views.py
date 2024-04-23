@@ -6,25 +6,35 @@ def main(request):
   return HttpResponse("<b>Welcome!!!</b>")
 def pd(request):
   return render(request,"products.html")
-def calculator(request):
+from django.shortcuts import render
+def evenodd(request):
   c=''
-  try:
-    if request.mrthpod=="POST":
-      n1=eval(request.POST.get('num1'))
-      n2=eval(request.POST.get('num2'))
-      opr=request.POST.get('opr')
-      if opr=="+":
-        c=n1+n2
-      elif opr=="-":
-        c=n1-n2
-      elif opr=="*":
-        c=n1*n2
-      elif opr=="/":
-        c=n1/n2
-      print(c)
-  except:
-    c="Invalid opr..."
-  return render(request,"calculator.html")
+  if request.method=="POST":
+    n=eval(request.POST.get('num1'))
+    if n%2==0:
+      c="EvenNumber"
+    else:
+      c="oddNumber"
+  return render(request,"evenodd.html",{'c':c})
+def calculator(request):
+    c = ''
+    if request.method == "POST":  # Check if the request method is POST
+        try:
+            n1 = eval(request.POST.get('num1'))
+            n2 = eval(request.POST.get('num2'))
+            opr = request.POST.get('opr')
+            if opr == "+":
+                c = n1 + n2
+            elif opr == "-":
+                c = n1 - n2
+            elif opr == "*":
+                c = n1 * n2
+            elif opr == "/":
+                c = n1 / n2
+        except Exception as e:  # Catch any exceptions
+            c = "Invalid operation or input"
+    return render(request, "calculator.html", {'c': c})  # Pass the calculated value to the template
+
 def course(request,courseid):
   return HttpResponse(courseid)
 def homepage(request):
@@ -87,3 +97,36 @@ def userform(request):
   except:
     pass 
   return render(request,"userForm.html",data)
+# def marksheet(request):
+#   if request.method=="POST":
+#     n1=request.POST.get('subject1')
+#     n2=request.POST.get('subject2')
+#     n3=request.POST.get('subject3')
+#     n4=request.POST.get('subject4')
+#     n5=request.POST.get('subject5')
+#     c=n1+n2+n3+n4+n5
+#     c1=(n1+n2+n3+n4+n5)//5  
+#     return render(request,"Marksheet.html")
+#   return render(request,"Marksheet.html")
+from django.shortcuts import render
+
+def marksheet(request):
+    if request.method == "POST":
+        # Retrieve the subject scores from the POST data and convert them to integers
+        n1 = int(request.POST.get('subject1'))
+        n2 = int(request.POST.get('subject2'))
+        n3 = int(request.POST.get('subject3'))
+        n4 = int(request.POST.get('subject4'))
+        n5 = int(request.POST.get('subject5'))
+        
+        # Calculate the total score
+        total_score = n1 + n2 + n3 + n4 + n5
+        
+        # Calculate the average score
+        average_score = total_score // 5
+        
+        # Render the Marksheet.html template with the calculated values passed as context
+        return render(request, "Marksheet.html", {'total_score': total_score, 'average_score': average_score})
+    
+    # If the request method is not POST, just render the Marksheet.html template
+    return render(request, "Marksheet.html")

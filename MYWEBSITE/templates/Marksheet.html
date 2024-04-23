@@ -1,0 +1,18 @@
+<form method="POST">
+  {% csrf_token %}
+  <label>SUBJECT1</label>
+  <input type="text" name="subject1"/>
+  <label>SUBJECT2</label>
+  <input type="text" name="subject2"/>
+  <label>SUBJECT3</label>
+  <input type="text" name="subject3"/>
+  <label>SUBJECT4</label>
+  <input type="text" name="subject4"/>
+  <label>SUBJECT5</label>
+  <input type="text" name="subject5"/>
+  <button type="submit">SUBMIT</button>
+  <label>Total</label>
+  <input type="text" name="total" value="{{ total_score }}"/> <!-- Use name attribute -->
+  <label>Average</label>
+  <input type="text" name="average" value="{{ average_score }}"/> <!-- Use name attribute -->
+</form>
