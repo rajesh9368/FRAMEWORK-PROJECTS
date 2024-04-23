@@ -27,5 +27,6 @@ urlpatterns = [
     path('products-page/',views.product),
     path('th/',views.thank),
     path('submitform',views.submitform,name="submitform"),
-    path('userform',views.userform)
+    path('userform',views.userform),
+    path('calculator',views.calculator),
 ]
