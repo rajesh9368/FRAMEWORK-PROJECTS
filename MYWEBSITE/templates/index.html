@@ -11,9 +11,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 <body>
+    
     {% extends 'base.html' %}
     {% block content%}
+    
+    <marquee onmouseover="stop()" onmouseout="start()"><a href = "/newsDetails/{{news.id}}">{%for news in newsData%}
+        {{news.news_title}}</a> &nbsp; &nbsp; &nbsp;
+        {%endfor%}
+    </marquee>
     <!---------------------------featured categories--------------------->
+    
     <div class="categories">
         <div class="small-container">
         <div class="row">

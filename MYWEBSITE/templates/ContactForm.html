@@ -1,0 +1,10 @@
+{% comment %} {{n}} {% endcomment %}
+<form action="{% url 'saveEnquiry' %}" method="POST">
+  {%csrf_token%}
+ 
+  Name <input type="text" name="name">
+  Email <input type="Email" name="email">
+  Phone <input type="number" name="phone">
+  website Name<input type="text" name="websitename">
+  Message<input type="textarea" name="message">
+  <button>submit</button>

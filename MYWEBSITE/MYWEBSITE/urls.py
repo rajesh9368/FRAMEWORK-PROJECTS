@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MYWEBSITE import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin-panel/', admin.site.urls),
@@ -31,5 +33,10 @@ urlpatterns = [
     path('calculator',views.calculator),
     path('evenodd',views.evenodd),
     path('marksheet',views.marksheet),
-    path("modeldata",views.modeldata)
+    path("modeldata",views.modeldata),
+    path('newsDetails/<id>',views.newsdetails),
+    path('contactform',views.ContactForm),
+    path('saveEnquiry',views.saveEnquiry,name="saveEnquiry"),
 ]
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

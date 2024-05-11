@@ -3,6 +3,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import userforms
 from service.models import Service
+from news.models import News
+from contactenquiry.models import contactEnquiry
+from django.core.mail import send_mail
 def  modeldata(request):
   servicesData=Service.objects.all()
   for a in servicesData:
@@ -44,15 +47,22 @@ def calculator(request):
 def course(request,courseid):
   return HttpResponse(courseid)
 def homepage(request):
+  'Testing Mail',
+  'Here is the message',
+  'rk6961609@gmail.com',
+  ['rajesh.2125it1020@kiet.edu'],
+  fail_silently=False,
+  newsData = News.objects.all();
   data = {
-    'title':'Home Page',
-    'bodytext':'Welcome To HomePage',
-    'clist':['Django','Python','Java','HTML','CSS','JS'],
-    'studentdetails':[
-      {'phoneNo':'8859655963','Name':'Rajesh Kumar'},
-      {'phoneNo':'8859655966','Name':'Raju'}
-    ],
-    'numbers':[]
+    # 'title':'Home Page',
+    # 'bodytext':'Welcome To HomePage',
+    # 'clist':['Django','Python','Java','HTML','CSS','JS'],
+    # 'studentdetails':[
+    #   {'phoneNo':'8859655963','Name':'Rajesh Kumar'},
+    #   {'phoneNo':'8859655966','Name':'Raju'}
+    # ],
+    # 'numbers':[]
+    'newsData':newsData
   }
   return render(request,"index.html",data)
 def product(request):
@@ -136,3 +146,19 @@ def marksheet(request):
     
     # If the request method is not POST, just render the Marksheet.html template
     return render(request, "Marksheet.html")
+def newsdetails(request,id):
+   return render(request, "newsdetails.html")
+def ContactForm(request):
+   return render(request,"ContactForm.html")
+def saveEnquiry(request):
+  # n=''
+  if(request.method=="POST"):
+    name=request.POST.get('name')
+    email=request.POST.get('email')
+    phone=request.POST.get('phone')
+    website=request.POST.get('website')
+    message=request.POST.get('message')
+    en=contactEnquiry(name=name,email=email,phone=phone,website=website,message=message)
+    en.save()
+    # n='Data Inserted'
+  return render(request,"ContactForm.html");
